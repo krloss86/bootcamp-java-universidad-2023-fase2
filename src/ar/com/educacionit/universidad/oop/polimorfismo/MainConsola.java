@@ -20,6 +20,7 @@ public class MainConsola {
 		
 		for(Consola c : consolas) {
 			c.play();
+			
 			//si justo aca quiero saber si es play o xbox
 			if(c instanceof Play p) {
 				p.getMemoria();
