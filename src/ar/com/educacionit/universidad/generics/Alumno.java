@@ -39,6 +39,12 @@ public class Alumno implements Comparable<Alumno>{
 	public String getNombre() {
 		return nombre;
 	}
+	
+
+	@Override
+	public String toString() {
+		return "Alumno [dni=" + dni + ", apellido=" + apellido + ", nombre=" + nombre + ", curso=" + curso + "]";
+	}
 
 	@Override
 	public int hashCode() {
@@ -66,5 +72,27 @@ public class Alumno implements Comparable<Alumno>{
 		return true;
 	}
 	
-	
+	/*
+	 * Ordenamiento "natural" o interno
+	 */
+	public int compareTo(Alumno o) {
+		/*
+		1) b - a > 0 => a es < b 
+		2) b - a < 0 => a es > b 
+		3) a - b = 0 => a es igual a b
+		*/
+		/*
+		this.dni es un atributo de Alumno 
+		this.dni  es un String => ya tiene implementado .compareTo(String)
+		*/
+		//asc por dni 
+		//return this.dni.compareTo(o.getDni());
+		
+		int cmp = o.getDni().compareTo(this.getDni());
+		if(cmp == 0) {
+			//comparo por otra cosa
+			cmp = o.getApellido().compareTo(this.apellido);			
+		}
+		return cmp;
+	}
 }
